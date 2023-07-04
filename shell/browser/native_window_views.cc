@@ -567,6 +567,14 @@ void NativeWindowViews::Hide() {
 #endif
 }
 
+bool NativeWindowViews::IsOccluded() {
+  if (!GetNativeWindow())
+    return false;
+  auto occlusion_state =
+      GetNativeWindow()->GetHost()->GetNativeWindowOcclusionState();
+  return occlusion_state == aura::Window::OcclusionState::OCCLUDED;
+}
+
 bool NativeWindowViews::IsVisible() {
 #if BUILDFLAG(IS_WIN)
   // widget()->IsVisible() calls ::IsWindowVisible, which returns non-zero if a

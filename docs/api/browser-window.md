@@ -666,6 +666,10 @@ Shows the window but doesn't focus on it.
 
 Hides the window.
 
+#### `win.isOccluded()`
+
+Returns `boolean` - Whether the window is partially or fully covered by other windows.
+
 #### `win.isVisible()`
 
 Returns `boolean` - Whether the window is visible to the user in the foreground of the app.

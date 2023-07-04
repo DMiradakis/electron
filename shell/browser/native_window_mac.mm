@@ -525,9 +525,12 @@ void NativeWindowMac::Hide() {
   [window_ orderOut:nil];
 }
 
+bool NativeWindowMac::IsOccluded() {
+  return !([window_ occlusionState] & NSWindowOcclusionStateVisible);
+}
+
 bool NativeWindowMac::IsVisible() {
-  bool occluded = [window_ occlusionState] == NSWindowOcclusionStateVisible;
-  return [window_ isVisible] && !occluded && !IsMinimized();
+  return [window_ isVisible] && !IsMinimized();
 }
 
 bool NativeWindowMac::IsEnabled() {

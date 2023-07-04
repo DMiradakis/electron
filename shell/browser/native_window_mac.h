@@ -43,6 +43,7 @@ class NativeWindowMac : public NativeWindow,
   void Show() override;
   void ShowInactive() override;
   void Hide() override;
+  bool IsOccluded() override;
   bool IsVisible() override;
   bool IsEnabled() override;
   void SetEnabled(bool enable) override;
